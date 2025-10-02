@@ -5,10 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\traerDatosController;
 use App\Http\Controllers\AnalisisController;
+use App\Http\Controllers\EstadisticaController;
 
 Route::get('/', function () {
     return view('Dashboard.dashboard');
 });
+
+// vista principal
+
+Route::get('/estadisticas', [EstadisticaController::class, 'index'])->name('estadisticas.index');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('/datos', [traerDatosController::class, 'traerDatos'])->name('traerDatos');
